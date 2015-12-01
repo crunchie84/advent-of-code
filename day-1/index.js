@@ -15,3 +15,25 @@ var output = _(input.split(''))
 	.sum();
 
 console.log('floor:', output);
+
+var initialValue = { 'idx': 0, 'currentFloor': 0, 'firstNegativeFloorIndex' : null };
+
+var firstNegativeChar = _(input.split(''))
+	.map(function (floorChr){
+		if(floorChr === '(')
+			return 1;
+		else
+			return -1;
+	})
+	.reduce(function (total, floorModifier){	
+		total.idx = total.idx + 1;
+		total.currentFloor = total.currentFloor + floorModifier;
+		
+		if(total.currentFloor < 0 && total.firstNegativeFloorIndex === null)
+			total.firstNegativeFloorIndex = total.idx;
+	
+		return total;
+	}, initialValue)
+	;
+	
+console.log('first negative floor @ idx ', firstNegativeChar);
