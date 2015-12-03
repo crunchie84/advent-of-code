@@ -1,0 +1,14 @@
+{
+  "name": "day-03",
+  "version": "1.0.0",
+  "description": "--- Day 3: Perfectly Spherical Houses in a Vacuum ---",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.10.1"
+  }
+}
