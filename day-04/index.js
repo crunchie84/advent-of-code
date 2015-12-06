@@ -11,7 +11,7 @@ function findFirstChecksumWithPrefix(prefix, expectedOutputPrefix, startAtIterat
   var i = startAtIteration;
   while(true){
     var result = md5(prefix + i);
-    if(i % 10000 == 0)
+    if(i % 10000 === 0)
       console.log(i);
 
     if(stringStartsWith(result, expectedOutputPrefix)){
