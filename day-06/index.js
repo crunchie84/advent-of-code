@@ -17,7 +17,7 @@ var amountOfLightsTurnedOn = _.reduce(result, function(total, row){
   return total + _.sum(row);
 }, 0);
 
-console.log('lights turned on', amountOfLightsTurnedOn);
+console.log('lights turned on total intensity:', amountOfLightsTurnedOn);
 
 
 //assertGridEquals(createGrid(1), modifyGrid('turn on 0,0 through 999,999', createGrid(0)));
@@ -77,7 +77,7 @@ function turnOn(coordinates, currentGrid){
 
   for(var x = coordinates.from[0]; x <= coordinates.to[0]; x++){
     for(var y = coordinates.from[1]; y <= coordinates.to[1]; y++){
-      currentGrid[x][y] = 1;
+      currentGrid[x][y] += 1;
     }
   }
 
@@ -89,7 +89,9 @@ function turnOff(coordinates, currentGrid){
   //turn off 631,950 through 894,975
   for(var x = coordinates.from[0]; x <= coordinates.to[0]; x++){
     for(var y = coordinates.from[1]; y <= coordinates.to[1]; y++){
-      currentGrid[x][y] = 0;
+      currentGrid[x][y] -= 1;
+      if(currentGrid[x][y] < 0)
+        currentGrid[x][y] = 0;
     }
   }
 
@@ -101,7 +103,8 @@ function toggle(coordinates, currentGrid){
 
   for(var x = coordinates.from[0]; x <= coordinates.to[0]; x++){
     for(var y = coordinates.from[1]; y <= coordinates.to[1]; y++){
-      currentGrid[x][y] = currentGrid[x][y] === 1 ? 0 : 1;
+      //currentGrid[x][y] = currentGrid[x][y] === 1 ? 0 : 1;
+      currentGrid[x][y] += 2;
     }
   }
 
