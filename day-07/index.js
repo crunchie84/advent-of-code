@@ -57,7 +57,7 @@ console.log('output for a:', computed.a.output());
 // reset the other wires (including wire a). What new signal is ultimately
 // provided to wire a?
 
-//reset all value gates
+//reset all value gates and wire 'b' to the answer of part 1
 _.forEach(computed, function(obj){
   obj.result_cache = NaN;
 });
